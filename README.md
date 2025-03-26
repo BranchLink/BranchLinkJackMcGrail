@@ -1,6 +1,6 @@
-# BranchLink/Ralph Profile Card
+# BranchLink/JackMcGrail Profile Card
 
-This project is a simple, responsive profile card built using Astro, HTML, and CSS. It displays information and links for Ralph Lopez.
+This project is a simple, responsive profile card built using Astro, HTML, and CSS. It displays information and links for Jack McGrail.
 
 ## Features
 
@@ -16,7 +16,7 @@ This project is a simple, responsive profile card built using Astro, HTML, and C
 1.  **Clone the repository:**
     ```bash
     git clone <your-repository-url>
-    cd BranchLink-Ralph
+    cd BranchLinkJackMcgrail
     ```
 2.  **Install dependencies:**
     ```bash
