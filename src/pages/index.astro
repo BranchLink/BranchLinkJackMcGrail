@@ -1,0 +1,238 @@
+---
+import { Icon } from 'astro-icon';
+
+// Hardcoded links for program lead (remove userRole logic)
+let links = [
+  { href: "mailto:Jmcgrail@solaimpact.com", text: "Email", icon: "mdi:email" },
+  { href: "tel:714-801-2708", text: "Phone", icon: "mdi:phone" },
+  { href: "https://www.thesolafoundation.org/livenation", text: "Live Nation Next Gen Program", icon: "mdi:web" },
+  { href: "https://www.instagram.com/nextgenpresents/", text: "Next Gen Presents Instagram", icon: "mdi:instagram" },
+  { href: "#", text: "Get Your Tickets (Coming Soon)", icon: "mdi:ticket", disabled: true },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>BranchLink/JackMcGrail</title>
+
+    <link rel="icon" type="image/png" href="/assets/Jackpfp.jpeg" />
+
+    <style>
+      /* CSS styling for the profile card */
+
+      body {
+        background-color: #282828;
+        color: #212121;
+        font-family: sans-serif;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .card {
+        max-width: 400px;
+        width: 90%;
+        background-color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .header-image {
+        width: 100%;
+        height: 160px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .header-image img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .profile-section {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        margin-top: -65px;
+        margin-bottom: 0px;
+      }
+
+      .profile-image {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        margin-bottom: 12px;
+        border: 2px solid #fff;
+        border-radius: 8px;
+      }
+
+      .profile-text {
+        text-align: left;
+      }
+
+      .profile-text h1 {
+        margin: -4px 0 4px 0;
+        font-size: 1.2em;
+        font-weight: 600;
+      }
+
+      .profile-text p {
+        margin: 0;
+        font-size: 0.9em;
+        color: #2d2d2d;
+      }
+
+      .button-list {
+        padding: 16px;
+      }
+
+      .button-list a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #f8f8f8;
+        padding: 12px 14px;
+        margin-bottom: 14px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #212121;
+        font-size: 0.85em;
+        border: 1px solid #ddd;
+      }
+
+      .button-list a span {
+        display: flex;
+        align-items: center;
+      }
+
+      .button-list a span svg {
+        margin-right: 8px;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        font-size: 0.9em;
+        color: #353535;
+      }
+
+      /* Media Queries for Responsiveness */
+
+      @media (max-width: 600px) {
+        .card {
+          width: 95%;
+          margin: 1em;
+        }
+
+        .header-image {
+          height: 120px;
+        }
+
+        .profile-section {
+          margin-top: -50px;
+        }
+
+        .profile-text h1 {
+          font-size: 1em;
+        }
+
+        .button-list a {
+          font-size: 0.8em;
+          padding: 10px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .header-image {
+          height: 100px;
+        }
+      }
+
+      /* Arrow Styling */
+      .arrow-icon svg {
+        font-size: 1.2em;
+        color: #2d2d2d;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .button-list a:hover .arrow-icon svg {
+        transform: translateX(5px);
+      }
+
+      .button-list a[disabled] {
+          background-color: #e0e0e0;
+          color: #9e9e9e;
+          pointer-events: none;
+          cursor: not-allowed;
+      }
+
+      .button-list a[disabled] .arrow-icon svg {
+        color: #9e9e9e;
+      }
+
+      .arrow-icon {
+        margin-right: -12px; /* Increased to push arrow further right */
+      }
+
+      .button-list a span {
+        justify-content: space-between;
+        width: 100%;
+      }
+      .button-list a span span{
+        width: auto;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="header-image">
+        <img src="/assets/ln.png" alt="Header Image" />
+      </div>
+
+      <div class="profile-section">
+        <img
+          class="profile-image"
+          src="/assets/Jackpfp.jpeg"
+          alt={`Profile image of Jack McGrail`}
+        />
+        <div class="profile-text">
+          <h1>Jack McGrail</h1>
+          <p>Program Lead @ SoLa Impact</p>
+        </div>
+      </div>
+
+      <div class="button-list">
+        {links.map((link) => (
+          <a href={link.href} target="_blank" disabled={link.disabled}>
+            <span>
+              <span>
+                <Icon name={link.icon} width="20px" height="20px" />
+                {link.text}
+              </span>
+              <span class="arrow-icon">
+                <Icon name="mdi:arrow-right" width="20px" height="20px" />
+              </span>
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <div class="footer">
+        <p>Coming Soon</p>
+      </div>
+    </div>
+  </body>
+</html>
